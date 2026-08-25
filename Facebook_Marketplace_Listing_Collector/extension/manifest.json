@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Marketplace Listing Collector",
+  "version": "1.3.0",
+  "description": "Save Facebook Marketplace listings locally and export them to CSV or JSON.",
+  "permissions": ["storage", "downloads", "activeTab", "tabs", "https://*.facebook.com/*", "https://*.fbcdn.net/*"],
+  "browser_action": {
+    "default_title": "Marketplace Listing Collector",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["https://*.facebook.com/marketplace/*", "https://facebook.com/marketplace/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }],
+  "background": {"scripts": ["shared.js", "background.js"]},
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "marketplace-collector@local.gaurav",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {"required": ["none"]}
+    }
+  }
+}

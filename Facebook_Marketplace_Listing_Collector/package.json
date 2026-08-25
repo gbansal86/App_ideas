@@ -1,0 +1,15 @@
+{
+  "name": "facebook-marketplace-listing-collector-tests",
+  "version": "1.3.0",
+  "private": true,
+  "description": "Reproducible tests for the Firefox Marketplace Listing Collector extension.",
+  "scripts": {
+    "test": "npm run test:syntax && npm run test:batch && npm run test:scope",
+    "test:syntax": "node --check extension/shared.js && node --check extension/background.js && node --check extension/content.js && node --check extension/popup.js && node --check extension/dashboard.js",
+    "test:batch": "node tests/test_batch_v130.js",
+    "test:scope": "node tests/test_strict_listing_scope.js"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}
